@@ -8,6 +8,11 @@ Supported Website :
 > - spotify.com (can't test it)
 > - youtube.com
 
+Futur Adding ?
+> - Aternos
+
+Feel free to open an issue to suggest website
+
 
 ## Available at :
 - [Mozilla addons store](https://addons.mozilla.org/fr/firefox/search/?q=MuteTabs)
