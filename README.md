@@ -14,7 +14,7 @@ Supported Website :
 
 Since the WebStore is paid, I don't plan to put the extension on the chrome webstore.
 
-# Installing from Source (Chrome / Brave / etc...)
+# Installing from Source (for Chrome / Brave / Edge / ...)
 
     Visit chrome://extensions/
     Ensure Developer mode is checked
