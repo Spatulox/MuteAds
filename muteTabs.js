@@ -1,14 +1,26 @@
 const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
 
 export function handleDeezer(tabs) {
-    globalMute(tabs, 'adContainer');
+    globalMuteBySelectingElement(tabs, 'adContainer');
 }
 
 export function handleYoutube(tabs) {
-    globalMute(tabs, "ad-showing");
+    globalMuteBySelectingElement(tabs, "ad-showing");
 }
 
-function globalMute(tabs, CSSid) {
+export function handleSpotify(tabs) {
+    globalMutByInspectingTabTitle(tabs, ["Advertissement"]);
+}
+
+
+function globalMutByInspectingTabTitle(tabs, wordsArray){
+    tabs.forEach((tab) => {
+        const isMuted = wordsArray.some(word => tab.title.includes(word));
+        browserAPI.tabs.update(tab.id, { muted: isMuted });
+    });
+}
+
+function globalMuteBySelectingElement(tabs, CSSid) {
     console.log("globalmute");
     tabs.forEach((tab) => {
         browserAPI.scripting.executeScript({

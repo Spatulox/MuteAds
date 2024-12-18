@@ -18,7 +18,8 @@
 
   "host_permissions": [
     "*://*.deezer.com/*",
-    "*://*.youtube.com/*"
+    "*://*.youtube.com/*",
+    "*://*.spotify.com/*"
   ],
 
   "background": {
@@ -29,7 +30,7 @@
   "web_accessible_resources": [
     {
       "resources": ["muteTabs.js"],
-      "matches": ["*://*.deezer.com/*", "*://*.youtube.com/*"]
+      "matches": ["*://*.deezer.com/*", "*://*.youtube.com/*", "*://*.spotify.com/*"]
     }
   ]
 }
