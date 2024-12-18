@@ -5,6 +5,7 @@ Built for family use btw
 
 Supported Website :
 > - deezer.com
+> - spotify.com (can't test it)
 > - youtube.com
 
 
