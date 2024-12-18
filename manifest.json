@@ -1,5 +1,4 @@
 {
-
   "manifest_version": 3,
   "name": "MuteAds",
   "version": "1.0",
@@ -23,15 +22,14 @@
   ],
 
   "background": {
-    "service_worker": "background.js"
+    "service_worker": "background.js",
+    "type":"module"
   },
 
   "web_accessible_resources": [
     {
       "resources": ["muteTabs.js"],
-      "matches": ["*://*.deezer.com/*",
-                  "*://*.youtube.com/*"]
+      "matches": ["*://*.deezer.com/*", "*://*.youtube.com/*"]
     }
   ]
 }
-
