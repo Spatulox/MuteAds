@@ -1,13 +1,15 @@
-function handleDeezer(tabs) {
-    globalMute(tabs, 'adContainer')
+const browserAPI = typeof browser !== 'undefined' ? browser : chrome;
+
+export function handleDeezer(tabs) {
+    globalMute(tabs, 'adContainer');
 }
 
-function handleYoutube(tabs){
-    globalMute(tabs, "ad-showing")
+export function handleYoutube(tabs) {
+    globalMute(tabs, "ad-showing");
 }
 
-function globalMute(tabs, CSSid){
-    console.log("globalmute")
+function globalMute(tabs, CSSid) {
+    console.log("globalmute");
     tabs.forEach((tab) => {
         browserAPI.scripting.executeScript({
             target: {tabId: tab.id},
@@ -16,11 +18,11 @@ function globalMute(tabs, CSSid){
                 return !!videoAd;
             },
             args: [CSSid]
-        }, (results) => {
+        }).then((results) => {
             if (results && results[0]) {
                 const hasVideoAd = results[0].result;
                 browserAPI.tabs.update(tab.id, {muted: hasVideoAd});
             }
-        });
+        }).catch(error => console.error('Error:', error));
     });
 }
