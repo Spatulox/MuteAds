@@ -1,11 +1,21 @@
 function handleDeezer(tabs) {
+    globalMute(tabs, 'adContainer')
+}
+
+function handleYoutube(tabs){
+    globalMute(tabs, "ad-showing")
+}
+
+function globalMute(tabs, CSSid){
+    console.log("globalmute")
     tabs.forEach((tab) => {
         browserAPI.scripting.executeScript({
             target: {tabId: tab.id},
-            func: () => {
-                const videoAd = document.getElementById('adContainer');
+            func: (CSSidChild) => {
+                const videoAd = document.getElementById(CSSidChild) || document.getElementsByClassName(CSSidChild)[0];
                 return !!videoAd;
-            }
+            },
+            args: [CSSid]
         }, (results) => {
             if (results && results[0]) {
                 const hasVideoAd = results[0].result;
